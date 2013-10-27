@@ -34,7 +34,7 @@ set -e -u
 # Config. Update here to suite your specific needs. I've
 #
 InstallBase=`pwd`
-BrewHome=/brew2/local
+BrewHome=/usr/local
 BrewTools="gnu-sed binutils gawk automake libtool bash"
 BrewToolsExtra="https://raw.github.com/Homebrew/homebrew-dupes/master/grep.rb"
 ImageName=CrossTool2NG
@@ -89,7 +89,7 @@ function patchCrosstool()
 {
     cd /Volumes/$ImageName/$CrossToolVersion
     echo "Patching crosstool-ng..."
-    sed -i .bak '6i\
+    sed -i.bak '6i\
 #include <stddef.h>' kconfig/zconf.y
 }
 
